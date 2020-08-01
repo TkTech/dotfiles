@@ -74,8 +74,6 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set t_Co=256
 syntax enable
 set background=dark
-" set termguicolors
-let g:onedark_terminal_italics = '1'
 colorscheme onedark
 set colorcolumn=80
 highlight ColorColumn ctermbg=235
