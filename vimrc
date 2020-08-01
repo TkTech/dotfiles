@@ -1,20 +1,12 @@
-" ---------------------------------------------------------------------------
-"  Vundle settings & setup
-" ---------------------------------------------------------------------------
-" Use Vim, not Vi settings.
 set nocompatible
 filetype off
 set encoding=utf8
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" If it exists, source an external file which should list
-" BundleInstall commands.
-
+" Ale likes to be configured early or some settings will work oddly.
 let g:ale_set_balloons=1
 let g:ale_sign_column_always = 1
 let g:ale_completion_enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:ale_pattern_options = {
 \ '\.py$': {'ale_linters': ['flake8', 'pyls']}
 \}
@@ -27,6 +19,12 @@ let g:ale_python_pyls_config = {
 \     }
 \   },
 \ }
+
+" ---------------------------------------------------------------------------
+"  Vundle settings & setup
+" ---------------------------------------------------------------------------
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Required, lets Vundle manage itself.
 Plugin 'VundleVim/Vundle.vim'
@@ -55,10 +53,9 @@ Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 filetype plugin indent on
 
+" ---------------------------------------------------------------------------
 "  Whitespace settings
 " ---------------------------------------------------------------------------
-" Read file-specific configuration from the first few lines of the file.
-set modelines=1
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -74,11 +71,21 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme onedark
+" We ignore errors setting the color scheme because we're probably
+" running !PluginInstall in our bootstrap.
+silent! colorscheme onedark
+" Make a colored column at 80 characters.
 set colorcolumn=80
 highlight ColorColumn ctermbg=235
 " Enable background transparency.
 highlight Normal ctermbg=NONE guibg=NONE
+
+" Remove the vertical divider between panes. We've forced line numbers which
+" work just fine as a visual divider.
+:set fillchars+=vert:\ 
+highlight VertSplit cterm=NONE
+" But if you want clean unicode pipes instead, use this:
+" set fillchars+=vert:│
 
 " ---------------------------------------------------------------------------
 "  misc. settings
@@ -107,24 +114,13 @@ set mouse=a
 set ttymouse=xterm
 set completeopt=menu,menuone,preview,noselect,noinsert
 
-" Close the preview window if the cursor moves in insert mode.
-" autocmd CursorMovedI * call ClosePreview()
-" Close the preview window if we leave insert mode.
-" autocmd InsertLeave * call ClosePreview()
-
-function ClosePreview()
-    " Close the preview window if it's open.
-    if pumvisible() == 0 && bufname("%") != "[Command Line]"
-        silent! pclose
-    endif
-endfunction
-
 " ---------------------------------------------------------------------------
 "  Settings specific to certain filetypes.
 " ---------------------------------------------------------------------------
 " Use 2 spaces instead of 4 for HTML files.
 autocmd FileType html :setlocal sts=2 ts=2 sw=2
 autocmd FileType jinja :setlocal sts=2 ts=2 sw=2
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
 autocmd BufRead,BufNewFile *.tsx set filetype=typescript
 
 " ---------------------------------------------------------------------------
@@ -165,9 +161,6 @@ function! AdjustWindowHeight(minheight, maxheight)
 endfunction
 
 " ---------------------------------------------------------------------------
-"  Local plugin settings.
-" ---------------------------------------------------------------------------
-" ---------------------------------------------------------------------------
 "  Ctrl-P settings
 " ---------------------------------------------------------------------------
 let g:ctrlp_extensions = ['funky']
@@ -196,17 +189,9 @@ if has("mac")
     nmap <silent> <leader>d <Plug>DashSearch
 endif
 
-set fillchars+=vert:│
-
-let g:airline#extensions#ale#enabled = 1
-let g:ale_sign_column_always = 1
-
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
 packloadall
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
 silent! helptags ALL
-
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
-
