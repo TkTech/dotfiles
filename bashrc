@@ -56,3 +56,5 @@ if hash starship 2>/dev/null; then
     starship_precmd_user_func="set_win_title"
     eval "$(starship init bash)"
 fi
+
+[ -x $HOME/.cargo/env ] && source $HOME/.cargo/env

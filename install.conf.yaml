@@ -14,3 +14,8 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [vim +PluginInstall +qall, Installing vim plugins]
+    - [curl https://sh.rustup.rs -sSf | sh -s -- -y, Installing Cargo]
+    - [cargo install exa, Installing Exa]
+    - [cargo install fd-find, Installing fd]
+    - [cargo install hexyl, Installing hexyl]
+    - [cargo install --locked bat, Installing bat]
