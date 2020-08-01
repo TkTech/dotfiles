@@ -19,3 +19,4 @@
     - [cargo install fd-find, Installing fd]
     - [cargo install hexyl, Installing hexyl]
     - [cargo install --locked bat, Installing bat]
+    - [curl -fsSL https://starship.rs/install.sh | bash -s -- -y, Installing Starship]

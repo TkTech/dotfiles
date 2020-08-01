@@ -1,6 +1,6 @@
 # Dotfiles
 
-Portable dotfiles using [dotbot][]. Just needs bash.
+Portable dotfiles using [dotbot][].
 
 Colors assume that your terminal is using [dracula][] but should be readable
 on most anything.
@@ -20,6 +20,7 @@ The bootstrap will set you up with a few utilities:
 - *fd*, a *find* alternative.
 - *hexyl*, a clean hex viewer.
 - *bat*, a context-aware *cat*.
+- *starship*, a shell-agnostic and fast prompt with many integrations.
 
 The color schemes used by all these tools should be aesthetically pleasing with
 the [dracula][] terminal color scheme.
@@ -39,7 +40,10 @@ the [dracula][] terminal color scheme.
 
 ## Why is this public?
 
-Honestly? Public repos get unlimited Github Action runtime.
+Honestly? Public repos get unlimited Github Action runtime. This repo is an
+attempt at drastically simplifying and re-doing my 5 year old dotfiles with far
+less requirements. The goal is to ensure it will "just work" on any UNIX-y with
+bash, git, and python.
 
 [dotbot]: https://github.com/anishathalye/dotbot
 [dracula]: https://github.com/dracula/dracula-theme
