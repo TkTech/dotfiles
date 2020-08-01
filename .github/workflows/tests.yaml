@@ -1,0 +1,16 @@
+name: Test Install
+on: [push]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run dotbot install
+        run: |
+          ./install
+
