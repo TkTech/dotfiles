@@ -1,3 +1,5 @@
+![Test Install](https://github.com/TkTech/dotfiles/workflows/Test%20Install/badge.svg?branch=master&event=push)
+
 # Dotfiles
 
 Portable dotfiles using [dotbot][].
@@ -43,7 +45,8 @@ the [dracula][] terminal color scheme.
 Honestly? Public repos get unlimited Github Action runtime. This repo is an
 attempt at drastically simplifying and re-doing my 5 year old dotfiles with far
 less requirements. The goal is to ensure it will "just work" on any UNIX-y with
-bash, git, and python.
+bash, git, and python. To ensure this github actions are used to test any
+changes.
 
 [dotbot]: https://github.com/anishathalye/dotbot
 [dracula]: https://github.com/dracula/dracula-theme
