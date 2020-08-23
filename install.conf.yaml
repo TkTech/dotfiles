@@ -10,6 +10,9 @@
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.bashrc: bashrc
+    ~/.config/starship.toml:
+      create: true
+      path: config/starship.toml
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

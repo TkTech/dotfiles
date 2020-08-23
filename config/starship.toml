@@ -1,0 +1,9 @@
+# Don't print a newline on prompts.
+add_newline = false
+
+[directory]
+prefix = ""
+
+[hostname]
+ssh_only = false
+suffix = "⟫"
