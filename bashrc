@@ -57,4 +57,11 @@ if hash starship 2>/dev/null; then
     eval "$(starship init bash)"
 fi
 
+# Include Cargo in the path if it's present.
 [ -x $HOME/.cargo/env ] && source $HOME/.cargo/env
+
+# Setup rbenv if it's present
+if [ -d $HOME/.rbenv ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi

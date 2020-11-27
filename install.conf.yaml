@@ -1,8 +1,3 @@
-- defaults:
-    link:
-      relink: true
-      force: true
-
 - clean: ['~']
 
 - link:
@@ -10,12 +5,22 @@
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.bashrc: bashrc
+    ~/.gnupg/gpg-agent.conf:
+      create: true
+      path: gnupg/gpg-agent.conf
     ~/.config/starship.toml:
       create: true
       path: config/starship.toml
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [mkdir -p ~/.rbenv ~/.rbenv/plugins, Making directoriues for rbenv]
+
+- link:
+    ~/.rbenv: ruby/rbenv
+    ~/.rbenv/plugins/ruby-build: ruby/ruby-build
+
+- shell:
     - [vim +PluginInstall +qall, Installing vim plugins]
     - [curl https://sh.rustup.rs -sSf | sh -s -- -y, Installing Cargo]
     - [cargo install exa, Installing Exa]

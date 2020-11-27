@@ -5,3 +5,9 @@
 [submodule "vim/bundle/Vundle.vim"]
 	path = vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "ruby/rbenv"]
+	path = ruby/rbenv
+	url = https://github.com/rbenv/rbenv.git
+[submodule "ruby/ruby-build"]
+	path = ruby/ruby-build
+	url = https://github.com/rbenv/ruby-build.git
