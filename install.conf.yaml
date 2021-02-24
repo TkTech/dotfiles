@@ -7,8 +7,12 @@
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim
     ~/.vimrc: vimrc
-    ~/.bashrc: bashrc
-    ~/.bash_profile: bash_profile
+    ~/.bashrc:
+        path: bashrc
+        force: true
+    ~/.bash_profile: 
+        path: bash_profile
+        force: true
     ~/.config/starship.toml: config/starship.toml
 
 - shell:
