@@ -1,30 +1,22 @@
 - clean: ['~']
 
+- create:
+    - ~/.config
+
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.bashrc: bashrc
-    ~/.gnupg/gpg-agent.conf:
-      create: true
-      path: gnupg/gpg-agent.conf
-    ~/.config/starship.toml:
-      create: true
-      path: config/starship.toml
+    ~/.bash_profile: bash_profile
+    ~/.config/starship.toml: config/starship.toml
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [mkdir -p ~/.rbenv ~/.rbenv/plugins, Making directoriues for rbenv]
-
-- link:
-    ~/.rbenv: ruby/rbenv
-    ~/.rbenv/plugins/ruby-build: ruby/ruby-build
+    - [chsh -s $(which bash), Making bash the default shell]
+    - [bash setup_ruby.sh, Setting up Ruby (rbenv)]
 
 - shell:
     - [vim +PluginInstall +qall, Installing vim plugins]
-    - [curl https://sh.rustup.rs -sSf | sh -s -- -y, Installing Cargo]
-    - [cargo install exa, Installing Exa]
-    - [cargo install fd-find, Installing fd]
-    - [cargo install hexyl, Installing hexyl]
-    - [cargo install --locked bat, Installing bat]
+    - [curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path, Installing Cargo]
     - [curl -fsSL https://starship.rs/install.sh | bash -s -- -y, Installing Starship]
