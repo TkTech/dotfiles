@@ -27,7 +27,7 @@ shopt -s checkwinsize
 # If set, the pattern "**" used in a pathname expansion context will match
 # all files and zero or more directories and subdirectories.
 # Bash > 4.1.0 only.
-if shopt | grep globstar 2>/dev/null; then
+if shopt | grep globstar &> /dev/null; then
     shopt -s globstar
 fi
 
