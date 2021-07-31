@@ -18,7 +18,6 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [chsh -s $(which bash), Making bash the default shell]
-    - [bash setup_ruby.sh, Setting up Ruby (rbenv)]
 
 - shell:
     - [vim +PluginInstall +qall, Installing vim plugins]
