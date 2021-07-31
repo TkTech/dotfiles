@@ -2,6 +2,7 @@
 
 - create:
     - ~/.config
+    - ~/.config/nvim
 
 - link:
     ~/.tmux.conf: tmux.conf
@@ -14,12 +15,13 @@
         path: bash_profile
         force: true
     ~/.config/starship.toml: config/starship.toml
+    ~/.config/nvim/init.vim: config/nvim/init.vim
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [chsh -s $(which bash), Making bash the default shell]
 
 - shell:
-    - [vim +PluginInstall +qall, Installing vim plugins]
+    - [vim +PlugInstall +qall, Installing vim plugins]
     - [curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path, Installing Cargo]
     - [curl -fsSL https://starship.rs/install.sh | bash -s -- -y, Installing Starship]
