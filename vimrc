@@ -111,8 +111,11 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 " Enable mouse support
 set mouse=a
-set ttymouse=xterm
 set completeopt=menu,menuone,preview,noselect,noinsert
+if exists(':ttymouse')
+    " neovim deprecated this option, as mouse support is the default.
+    set ttymouse=xterm2
+endif
 
 " ---------------------------------------------------------------------------
 "  Settings specific to certain filetypes.
