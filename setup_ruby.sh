@@ -1,6 +1,8 @@
 # Installs rbenv and ruby-build plugin if rbenv is not available, since it
 # might already be installed via a package manager.
-if [ -x "$(command -v rbenv)" ]; then
+if command -v rbenv &> /dev/null
+then
+    echo "rbenv is already present, not doing anything."
     exit 0
 fi
 
