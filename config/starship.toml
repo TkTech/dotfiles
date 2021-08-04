@@ -1,9 +1,6 @@
 # Don't print a newline on prompts.
 add_newline = false
 
-[duration]
-enabled = false
-
 [hostname]
 ssh_only = false
 format = "[$hostname]($style) ⟫ "
