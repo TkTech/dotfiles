@@ -9,6 +9,13 @@ EOF
 endif
 
 lua << EOF
+require('github-theme').setup({
+    themeStyle = "dimmed",
+    functionStyle = "italic"
+})
+EOF
+
+lua << EOF
 -- Compe setup
 require'compe'.setup {
   enabled = true;

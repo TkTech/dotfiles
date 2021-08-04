@@ -10,8 +10,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'sainnhe/everforest'
+Plug 'projekt0n/github-nvim-theme'
 Plug 'neovim/nvim-lspconfig', has('nvim') ? {} : { 'on': [] }
+Plug 'nvim-treesitter/nvim-treesitter', has('nvim') ? {'do': ':TSUpdate'} : { 'on': [] }
 Plug 'hrsh7th/nvim-compe', has('nvim') ? {} : { 'on': [] }
 Plug 'nvim-lua/popup.nvim', has('nvim') ? {} : { 'on': [] }
 Plug 'nvim-lua/plenary.nvim', has('nvim') ? {} : { 'on': [] }
@@ -40,16 +41,11 @@ if has('termguicolors')
 endif
 syntax enable
 set background=dark
-let g:everforest_background = 'soft'
-let g:everforest_enable_italic = 1
-" We ignore errors setting the color scheme because we're probably
-" running !PlugInstall in our bootstrap.
-silent! colorscheme everforest
 " Make a colored column at 80 characters.
 set colorcolumn=80
 highlight ColorColumn ctermbg=235
 " Enable background transparency.
-highlight Normal ctermbg=NONE guibg=NONE
+" highlight Normal ctermbg=NONE guibg=NONE
 
 " Remove the vertical divider between panes. We've forced line numbers which
 " work just fine as a visual divider.
