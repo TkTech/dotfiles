@@ -10,8 +10,8 @@ endif
 
 lua << EOF
 require('github-theme').setup({
-    themeStyle = "dimmed",
-    functionStyle = "italic"
+    theme_style = "dimmed",
+    function_style = "italic"
 })
 EOF
 

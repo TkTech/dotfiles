@@ -17,6 +17,7 @@ Plug 'hrsh7th/nvim-compe', has('nvim') ? {} : { 'on': [] }
 Plug 'nvim-lua/popup.nvim', has('nvim') ? {} : { 'on': [] }
 Plug 'nvim-lua/plenary.nvim', has('nvim') ? {} : { 'on': [] }
 Plug 'nvim-telescope/telescope.nvim', has('nvim') ? {} : { 'on': [] }
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 filetype plugin indent on
